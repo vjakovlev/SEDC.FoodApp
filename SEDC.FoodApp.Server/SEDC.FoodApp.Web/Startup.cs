@@ -10,25 +10,39 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SEDC.FoodApp.Services.Helpers;
+using SEDC.FoodApp.Services.Services.Classes;
+using SEDC.FoodApp.Services.Services.Interfaces;
 
 namespace SEDC.FoodApp.Web
 {
+    //Microsoft.AspNetCore.Cors
     public class Startup
     {
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+
+            //Mongo Db
+            var connectionString = Configuration.GetSection("MongoUserStoreConnection").GetValue<string>("ConnectionString");
+            var database = Configuration.GetSection("MongoUserStoreConnection").GetValue<string>("Database");
+
+            //Register Services
+            services.AddTransient<IRestorantService, RestorantService>();
+
+            //Dipendency Injection Module
+            DIRepositoryModule.RegisterRepositories(services, connectionString, database);
+
+            services.AddCors();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -39,6 +53,11 @@ namespace SEDC.FoodApp.Web
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(builder =>
+                builder.WithOrigins("http://localhost:4200", "http://localhost:4201")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
 
             app.UseAuthorization();
 

@@ -4,14 +4,80 @@
     "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj": {
+    "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj",
-        "projectName": "SEDC.FoodApp.Services",
-        "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj",
+        "projectUniqueName": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj",
+        "projectName": "SEDC.FoodApp.DataAccess",
+        "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj",
         "packagesPath": "C:\\Users\\Viktor.Jakovlev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\obj\\",
+        "outputPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Viktor.Jakovlev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://psd2.seavus.com:1111/nuget": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj": {
+                "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.11.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj",
+        "projectName": "SEDC.FoodApp.DomainModels",
+        "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj",
+        "packagesPath": "C:\\Users\\Viktor.Jakovlev\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +107,144 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.11.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj",
+        "projectName": "SEDC.FoodApp.RequestModels",
+        "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj",
+        "packagesPath": "C:\\Users\\Viktor.Jakovlev\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Viktor.Jakovlev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://psd2.seavus.com:1111/nuget": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj": {
+                "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj",
+        "projectName": "SEDC.FoodApp.Services",
+        "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj",
+        "packagesPath": "C:\\Users\\Viktor.Jakovlev\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Viktor.Jakovlev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://psd2.seavus.com:1111/nuget": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj"
+              },
+              "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj": {
+                "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj"
+              },
+              "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj": {
+                "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
