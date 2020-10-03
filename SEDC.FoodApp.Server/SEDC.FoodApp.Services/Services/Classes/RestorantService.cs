@@ -19,8 +19,6 @@ namespace SEDC.FoodApp.Services.Services.Classes
 
         public async Task CreateNewRestaurant(RestaurantRequestModel model) 
         {
-
-
             var dtoRestaurant = new Restaurant()
             {
                 Name = model.Name,

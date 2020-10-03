@@ -10,6 +10,5 @@ namespace SEDC.FoodApp.RequestModels.Models
         public string Name { get; set; }
         public string Address { get; set; }
         public Municipality Municipality { get; set; }
-        //public List<MenuItemRequestMode> Menu { get; set; }
     }
 }

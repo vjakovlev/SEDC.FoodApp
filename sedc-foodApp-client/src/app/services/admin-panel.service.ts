@@ -1,39 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { RestorauntRequestModel } from '../models/request-models/restoran-model'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { ConfigService } from './config.service';
+import { RestaurantRequestModel } from '../models/request-models/restoran-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminPanelService {
 
-  constructor(
-    private http: HttpClient,
-  ) { }
-
-
-  addRestoraunt(item:RestorauntRequestModel): Observable<RestorauntRequestModel> {
-    return this.http.post<RestorauntRequestModel>('URL', item)
-    .pipe(
-      // catchError(err => console.log(err))
-    )
-
+  get url() {
+    return this.config.getUrl()
   }
 
+  constructor(private http: HttpClient,
+              private config: ConfigService) {}
+
+  addRestaureant(request: RestaurantRequestModel): Observable<any> {
+    // let url = this.url + "/api/adminpanel/addrestaurant";
+    let url = "https://localhost:5001/api/AdminPanel/AddRestaurant";
+
+    console.log(url)
+
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
 
 
-
-
-
-
-
-
-
-
-
-
-
+    return this.http.post<RestaurantRequestModel>(url, request, options)
+  }
 
 }

@@ -1,9 +1,13 @@
-<form name="form" [formGroup]="form">
+<form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
     <label>Restoraunt Name</label>
     <input type="text" formControlName='name'>
+    <br>
     <label>Address</label>
     <input type="text" formControlName='address'>
+    <br>
     <label>Municipality</label>
     <input type="text" formControlName='municipality'>
+    <br>
+    <button type="submit">Send</button>
 </form>
-<button (click)="addRestoraunt()">Send</button>
+

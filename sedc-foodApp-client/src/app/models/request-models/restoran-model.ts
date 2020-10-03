@@ -1,17 +1,16 @@
-export interface RestorauntRequestModel {
+export class RestaurantRequestModel {
   name: string;
   address: string;
-//   menu: Array<MenuItemRequestModel>;
   municipality: Municipality;
 }
 
 export enum Municipality {
-  KARPOS = 1,
-  CENTAR,
-  AERODROM,
+  karpos = 1,
+  centar,
+  aerodrom,
 }
 
-export interface MenuItemRequestModel {
+export class MenuItemRequestModel {
   name: string;
   price: number;
   calories:number;
@@ -20,9 +19,9 @@ export interface MenuItemRequestModel {
 }
 
 export enum MealType {
-  STARTERS = 1,
-  SALADS,
-  MAINDISH,
-  DESERTS,
-  DRINKS,
+  Starters = 1,
+  Salads,
+  MainDish,
+  Deserts,
+  Drinks,
 }

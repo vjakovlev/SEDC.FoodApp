@@ -29,7 +29,6 @@ namespace SEDC.FoodApp.Web
         {
             services.AddControllers();
 
-
             //Mongo Db
             var connectionString = Configuration.GetSection("MongoUserStoreConnection").GetValue<string>("ConnectionString");
             var database = Configuration.GetSection("MongoUserStoreConnection").GetValue<string>("Database");
@@ -55,7 +54,7 @@ namespace SEDC.FoodApp.Web
             app.UseRouting();
 
             app.UseCors(builder =>
-                builder.WithOrigins("http://localhost:4200", "http://localhost:4201")
+                builder.WithOrigins("http://localhost:4200", "https://localhost:5001")
                     .AllowAnyHeader()
                     .AllowAnyMethod());
 
