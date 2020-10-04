@@ -6,8 +6,31 @@
     <input type="text" formControlName='address'>
     <br>
     <label>Municipality</label>
-    <input type="text" formControlName='municipality'>
+    <select formControlName="municipality" class="form-control">
+      <option *ngFor="let municipality of municipalityList">{{municipality}}</option>
+  </select>
     <br>
     <button type="submit">Send</button>
 </form>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Municipality</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let restoraunt of restoraunts; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>
+        {{ restoraunt.name }}
+      </td>
+      <td>{{ restoraunt.address  }}</td>
+      <td>{{ restoraunt.municipality }}</td>
+    </tr>
+    </tbody>
+  </table>
 

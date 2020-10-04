@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ConfigService } from './config.service';
-import { RestaurantRequestModel } from '../models/request-models/restoran-model';
+import { MenuItemRequestModel, RestaurantRequestModel } from '../models/request-models/restoran-model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,13 @@ export class AdminPanelService {
   constructor(private http: HttpClient,
               private config: ConfigService) {}
 
-  addRestaureant(request: RestaurantRequestModel): Observable<any> {
+
+  getAllRestoraunts() {
+    //Get all restoraunts
+
+  }
+
+  addRestoraunt(request: RestaurantRequestModel): Observable<any> {
     // let url = this.url + "/api/adminpanel/addrestaurant";
     let url = "https://localhost:5001/api/AdminPanel/AddRestaurant";
 
@@ -28,8 +34,19 @@ export class AdminPanelService {
       })
     };
 
-
-    return this.http.post<RestaurantRequestModel>(url, request, options)
+    return this.http.post<RestaurantRequestModel>(url, request, options);
   }
+
+  addMenuItem(request:MenuItemRequestModel) {
+    let url = "https://localhost:5001/api/AdminPanel/updateRestoraunt";
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+
+    return this.http.post<MenuItemRequestModel>(url, request, options);
+  }
+
 
 }

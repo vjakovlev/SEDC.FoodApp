@@ -4,6 +4,13 @@ export class RestaurantRequestModel {
   municipality: Municipality;
 }
 
+export interface RestaurantResponseModel {
+  id:number;
+  name: string;
+  address: string;
+  municipality: Municipality;
+}
+
 export enum Municipality {
   karpos = 1,
   centar,
@@ -15,7 +22,7 @@ export class MenuItemRequestModel {
   price: number;
   calories:number;
   isVege:boolean;
-  mealType:MealType
+  mealType:MealType;
 }
 
 export enum MealType {
