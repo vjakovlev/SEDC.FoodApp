@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SEDC.FoodApp.RequestModels.Models
 {
-    public class MenuItemRequestMode
+    public class MenuItemRequestModel
     {
         public string Name { get; set; }
         public int Price { get; set; }
