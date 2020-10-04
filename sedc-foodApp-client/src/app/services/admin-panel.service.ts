@@ -18,8 +18,13 @@ export class AdminPanelService {
 
 
   getAllRestoraunts() {
-    //Get all restoraunts
+    let url = "https://localhost:5001/api/AdminPanel/GetRestaurants";
+    return this.http.get(url);
+  }
 
+  getRestaurantById(id: string) {
+    let url = `https://localhost:5001/api/AdminPanel/GetRestaurants?id=${id}`;
+    return this.http.get(url);
   }
 
   addRestoraunt(request: RestaurantRequestModel): Observable<any> {

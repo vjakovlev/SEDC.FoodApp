@@ -11,6 +11,8 @@ import { AdminPanelService } from '../../services/admin-panel.service'
 })
 export class AdminPanelComponent implements OnInit {
 
+  restoraunts: any;
+
   requestForm = new FormGroup({
     name: new FormControl(''),
     address: new FormControl(''),
@@ -18,30 +20,40 @@ export class AdminPanelComponent implements OnInit {
   })
 
   municipalityList = [Municipality.karpos, Municipality.centar, Municipality.aerodrom];
-  restoraunts: Array<RestaurantResponseModel>;
-   
+
+
   constructor(private _adminPanelService: AdminPanelService) {}
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    this.getAllRestoraunts()
+  }
 
   onSubmit() {
+
     let requestModel = new RestaurantRequestModel();
     requestModel.name = this.requestForm.value.name;
     requestModel.address = this.requestForm.value.address;
     requestModel.municipality = parseInt(this.requestForm.value.municipality);
+
     this._adminPanelService.addRestoraunt(requestModel).subscribe({
       next: res => {
         console.log(res)
       },
-      error: err => console.warn(err.message),
-      complete: () => console.log("done")
+      error: err => console.warn(err),
+      complete: () => console.log("add restaurant done")
     })
+    
   }
 
   getAllRestoraunts() {
-    // this._adminPanelService.getAllRestoraunts()
-    
+    this._adminPanelService.getAllRestoraunts().subscribe({
+      next: res => {
+        this.restoraunts = res
+        console.log(res)
+      },
+      error: err => console.warn(err),
+      complete: () => console.log("get all restoraunts done")
+    })
   }
 
   addMenuItem() {

@@ -1,0 +1,32 @@
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Calories</th>
+        <th scope="col">Is Vegeterian</th>
+        <th scope="col">Price</th>
+        <th scope="col">Meal Type</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="restaurant">
+      <tr *ngFor="let item of restaurant[0].menu; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.calories }}</td>
+        <td>{{ item.isVege }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.mealType }}</td>
+        <td>
+          <button class="btn btn-outline-success">Options</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+
+<button (click)="test()">show restaurant</button>

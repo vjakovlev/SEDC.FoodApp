@@ -1,36 +1,52 @@
 <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+
     <label>Restoraunt Name</label>
     <input type="text" formControlName='name'>
+
     <br>
+
     <label>Address</label>
     <input type="text" formControlName='address'>
+
     <br>
+
     <label>Municipality</label>
     <select formControlName="municipality" class="form-control">
       <option *ngFor="let municipality of municipalityList">{{municipality}}</option>
-  </select>
+    </select>
+
     <br>
+
     <button type="submit">Send</button>
+
 </form>
 
+<br>
+
 <table class="table table-striped">
-    <thead>
+  <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Id</th>
       <th scope="col">Name</th>
       <th scope="col">Address</th>
       <th scope="col">Municipality</th>
+      <th scope="col">Options</th>
     </tr>
-    </thead>
-    <tbody>
+  </thead>
+  <tbody>
     <tr *ngFor="let restoraunt of restoraunts; index as i">
       <th scope="row">{{ i + 1 }}</th>
-      <td>
-        {{ restoraunt.name }}
-      </td>
-      <td>{{ restoraunt.address  }}</td>
+      <td>{{ restoraunt.id }}</td>
+      <td>{{ restoraunt.name }}</td>
+      <td>{{ restoraunt.address }}</td>
       <td>{{ restoraunt.municipality }}</td>
+      <td>
+        <button class="btn btn-outline-success" [routerLink]="['/restaurant-details',restoraunt.id]">Manage</button>
+        <button class="btn btn-outline-danger">Delete</button>
+      </td>
     </tr>
-    </tbody>
-  </table>
+  </tbody>
+</table>
+
 
