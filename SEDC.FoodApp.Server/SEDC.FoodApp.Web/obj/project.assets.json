@@ -8,23 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Viktor.Jakovlev\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\viceb\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Web\\SEDC.FoodApp.Web.csproj",
+      "projectUniqueName": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Web\\SEDC.FoodApp.Web.csproj",
       "projectName": "SEDC.FoodApp.Web",
-      "projectPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Web\\SEDC.FoodApp.Web.csproj",
-      "packagesPath": "C:\\Users\\Viktor.Jakovlev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Viktor.Jakovlev\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Web\\obj\\",
+      "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Web\\SEDC.FoodApp.Web.csproj",
+      "packagesPath": "C:\\Users\\viceb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Web\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Viktor.Jakovlev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\viceb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -32,8 +28,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://psd2.seavus.com:1111/nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
