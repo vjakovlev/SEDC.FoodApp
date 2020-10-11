@@ -4,6 +4,64 @@
     "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Web\\SEDC.FoodApp.Web.csproj": {}
   },
   "projects": {
+    "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj",
+        "projectName": "SEDC.FoodApp.Auth.Models",
+        "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj",
+        "packagesPath": "C:\\Users\\viceb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\viceb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,6 +85,9 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj": {
+                "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj"
+              },
               "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj": {
                 "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj"
               }
@@ -42,9 +103,23 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.11.2, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             }
           },
           "imports": [
@@ -224,9 +299,21 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[3.1.8, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             }
           },
           "imports": [
@@ -240,6 +327,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -271,6 +361,9 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj": {
+                "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj"
+              },
               "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj": {
                 "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj"
               },
@@ -289,9 +382,27 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.7.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.7.1, )"
             }
           },
           "imports": [
