@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'header',
@@ -9,39 +9,31 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  userDetails: any
+  isLoggedIn: boolean 
+  isUserAdmin: boolean
 
   constructor(private router: Router,
-              private userService: UserService) { }
-
-  //need to be checked             
+              public authService: AuthService) { }
+            
   ngOnInit(): void {
-    console.log("from nav")
-    this.userService.getUserProfile().subscribe({
-      next: res => {
-        console.log(res, "<=====")
-        this.userDetails = res
-      },
-      error: err => console.warn(err),
-      complete: () => this.checkIfUserHasAdminRole()
+
+    this.authService.isLoggedIn.subscribe({
+      next: data => this.isLoggedIn = data
     })
+
+    this.authService.isAdmin.subscribe({
+      next: data => this.isUserAdmin = data
+    })
+
+    this.authService.checkIfUserIsLogged()
+    this.authService.checkIfUserUserIsAdmin()
+    
   }
 
   onLogout() {
-    localStorage.removeItem("token");
-    this.router.navigate(["/user/login"]);
+    this.authService.logout()
   }
 
-  checkIfUserHasAdminRole() {
-    if(this.userDetails.role.includes("ADMIN")) {
-      return true
-    } else {
-      return false 
-    }
-  }
-
-  test() {
-    console.log(this.userDetails)
-  }
+  
 
 }

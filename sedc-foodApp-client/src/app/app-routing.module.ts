@@ -3,9 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
-import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { RestaurantDetailsComponent } from './components/restaurant-details/restaurant-details.component';
+import { RestaurantsComponent } from './components/restaurants/restaurants.component';
+import { ChangePasswordComponent } from './user/change-password/change-password.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { UserComponent } from './user/user.component';
@@ -13,18 +14,18 @@ import { UserComponent } from './user/user.component';
 const routes: Routes = [
   {path:'', redirectTo:'/home', pathMatch:'full'},
   {path:'home', pathMatch:'full', component:HomeComponent},
-  {path:'admin', pathMatch:'full', component:AdminPanelComponent},
   {path:'restaurant-details/:id', component:RestaurantDetailsComponent},
+  {path:'restaurants', component: RestaurantsComponent},
   {path:'forbidden', component: ForbiddenComponent},
-  {path:'adminpanel', component:AdminPanelComponent, canActivate:[AuthGuard],data :{permittedRoles:['ADMIN']}},
   {
     path: 'user', component: UserComponent,
     children: [
       { path: 'register', component: RegisterComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
     ]
   },
-  { path: '**', redirectTo: ''}
+  { path: 'user/change-password', component: ChangePasswordComponent },
+  {path:'admin', component:AdminPanelComponent, canActivate:[AuthGuard],data :{permittedRoles:['ADMIN']}}
 ]
 
 @NgModule({

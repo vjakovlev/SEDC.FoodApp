@@ -75,7 +75,8 @@ namespace SEDC.FoodApp.Web.Auth
                         Subject = new ClaimsIdentity(new Claim[]
                     {
                         new Claim("UserId", user.Id.ToString()),
-                        new Claim(options.ClaimsIdentity.RoleClaimType, role.FirstOrDefault())
+                        new Claim(options.ClaimsIdentity.RoleClaimType, role.FirstOrDefault()),
+                        new Claim("UserName", user.UserName)
                     }),
                         Expires = DateTime.UtcNow.AddDays(1),
                         SigningCredentials = new SigningCredentials(
@@ -99,6 +100,31 @@ namespace SEDC.FoodApp.Web.Auth
             else
             {
                 return BadRequest(new { message = "Username or password incorect" });
+            }
+        }
+
+        [HttpPost]
+        [Route("ChangePassword")]
+        public async Task<IActionResult> ChangeUserPassword([FromBody] ChangePasswordRequestModel model) 
+        {
+
+            try
+            {
+                var user = await _userManager.FindByIdAsync(model.UserId);
+                var response = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+
+                if (response.Succeeded)
+                {
+                    return Ok();
+                }
+                else 
+                {
+                    return BadRequest("Passwords dosn't match!");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

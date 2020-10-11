@@ -18,6 +18,9 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { HomeComponent } from './components/home/home.component';
+import { RestaurantsComponent } from './components/restaurants/restaurants.component';
+import { AuthService } from './auth/auth.service';
+import { ChangePasswordComponent } from './user/change-password/change-password.component';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { HomeComponent } from './components/home/home.component';
     UserComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    RestaurantsComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,8 @@ import { HomeComponent } from './components/home/home.component';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
