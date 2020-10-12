@@ -117,5 +117,6 @@ C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Deb
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\obj\Debug\netcoreapp3.1\SEDC.FoodApp.Web.csproj.CoreCompileInputs.cache
-C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\obj\Debug\netcoreapp3.1\SEDC.FoodApp.Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\obj\Debug\netcoreapp3.1\SEDC.FoodApp.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Debug\netcoreapp3.1\SEDC.FoodApp.Mailer.dll
+C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Debug\netcoreapp3.1\SEDC.FoodApp.Mailer.pdb

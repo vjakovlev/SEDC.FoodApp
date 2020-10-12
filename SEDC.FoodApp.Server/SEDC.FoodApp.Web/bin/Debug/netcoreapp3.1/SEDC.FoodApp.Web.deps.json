@@ -29,6 +29,7 @@
           "Microsoft.EntityFrameworkCore.Design": "3.1.8",
           "Microsoft.IdentityModel.Tokens": "6.7.1",
           "SEDC.FoodApp.Auth.Models": "1.0.0",
+          "SEDC.FoodApp.Mailer": "1.0.0",
           "SEDC.FoodApp.RequestModels": "1.0.0",
           "SEDC.FoodApp.Services": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "6.7.1",
@@ -1648,6 +1649,14 @@
         },
         "compile": {
           "SEDC.FoodApp.DomainModels.dll": {}
+        }
+      },
+      "SEDC.FoodApp.Mailer/1.0.0": {
+        "runtime": {
+          "SEDC.FoodApp.Mailer.dll": {}
+        },
+        "compile": {
+          "SEDC.FoodApp.Mailer.dll": {}
         }
       },
       "SEDC.FoodApp.RequestModels/1.0.0": {
@@ -4157,6 +4166,11 @@
       "sha512": ""
     },
     "SEDC.FoodApp.DomainModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SEDC.FoodApp.Mailer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

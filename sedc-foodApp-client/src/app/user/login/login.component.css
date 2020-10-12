@@ -10,3 +10,8 @@
 .login-header > img {
     height: 300px;
 }
+
+.forgot-password:hover {
+    text-decoration: none;
+    color: #FD9B0C;
+}

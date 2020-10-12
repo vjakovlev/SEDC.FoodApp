@@ -1899,6 +1899,16 @@
           "bin/placeholder/SEDC.FoodApp.DomainModels.dll": {}
         }
       },
+      "SEDC.FoodApp.Mailer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/SEDC.FoodApp.Mailer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SEDC.FoodApp.Mailer.dll": {}
+        }
+      },
       "SEDC.FoodApp.RequestModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -6439,6 +6449,11 @@
       "path": "../SEDC.FoodApp.DomainModels/SEDC.FoodApp.DomainModels.csproj",
       "msbuildProject": "../SEDC.FoodApp.DomainModels/SEDC.FoodApp.DomainModels.csproj"
     },
+    "SEDC.FoodApp.Mailer/1.0.0": {
+      "type": "project",
+      "path": "../SEDC.FoodApp.Mailer/SEDC.FoodApp.Mailer.csproj",
+      "msbuildProject": "../SEDC.FoodApp.Mailer/SEDC.FoodApp.Mailer.csproj"
+    },
     "SEDC.FoodApp.RequestModels/1.0.0": {
       "type": "project",
       "path": "../SEDC.FoodApp.RequestModels/SEDC.FoodApp.RequestModels.csproj",
@@ -6457,6 +6472,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 3.1.8",
       "Microsoft.IdentityModel.Tokens >= 6.7.1",
       "SEDC.FoodApp.Auth.Models >= 1.0.0",
+      "SEDC.FoodApp.Mailer >= 1.0.0",
       "SEDC.FoodApp.RequestModels >= 1.0.0",
       "SEDC.FoodApp.Services >= 1.0.0",
       "System.IdentityModel.Tokens.Jwt >= 6.7.1"
@@ -6490,6 +6506,9 @@
           "projectReferences": {
             "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj": {
               "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj"
+            },
+            "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Mailer\\SEDC.FoodApp.Mailer.csproj": {
+              "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Mailer\\SEDC.FoodApp.Mailer.csproj"
             },
             "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj": {
               "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj"

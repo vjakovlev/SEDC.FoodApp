@@ -21,6 +21,8 @@ import { HomeComponent } from './components/home/home.component';
 import { RestaurantsComponent } from './components/restaurants/restaurants.component';
 import { AuthService } from './auth/auth.service';
 import { ChangePasswordComponent } from './user/change-password/change-password.component';
+import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { ChangePasswordComponent } from './user/change-password/change-password.
     HomeComponent,
     RestaurantsComponent,
     ChangePasswordComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

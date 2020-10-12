@@ -20,8 +20,7 @@ export class ChangePasswordComponent implements OnInit {
   })
 
   constructor(private userService: UserService,
-              private router: Router,
-              private authService: AuthService) { }
+              private router: Router) { }
 
   ngOnInit(): void {}
 

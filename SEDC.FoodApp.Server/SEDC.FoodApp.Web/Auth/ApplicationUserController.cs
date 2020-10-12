@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using SEDC.FoodApp.Auth.Models;
+using SEDC.FoodApp.Mailer;
+using SEDC.FoodApp.Mailer.Models;
 
 namespace SEDC.FoodApp.Web.Auth
 {
@@ -127,6 +129,41 @@ namespace SEDC.FoodApp.Web.Auth
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpPost]
+        [Route("ForgotPassword")]
+        public async Task<IActionResult> ForgotUserPassword([FromBody] ForgotPasswordRequestModel model) 
+        {
+            
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var clientAddress = Configuration.GetSection("ApplicationSttings").GetValue<string>("ClientAddress");
+
+            var passwordResetLink = $"{clientAddress}/user/reset-password?email={user.Email}&token={token}";
+
+            var newEmail = new Email()
+            {
+                To = user.Email,
+                Subject = "reset password",
+                Body = $"Reset password here: {passwordResetLink}"
+            };
+
+            SendMail.Execute(newEmail);
+
+            return Ok();
+        }
+
+        [HttpGet]
+        [Route("ResetPassword")]
+        public async Task<IActionResult> ResetUserPassword([FromQuery] string email, string token, string newPassword)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
+
+
+            return Ok();
         }
     }
 }

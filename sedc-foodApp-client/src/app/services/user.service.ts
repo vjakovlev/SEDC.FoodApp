@@ -39,6 +39,16 @@ export class UserService {
     return this.http.post<any>(url, body);
   }
 
+  forgotUserPassword(body: any) {   
+    let url = `${this.serverURL}/api/applicationuser/ForgotPassword`
+    return this.http.post<any>(url, body);
+  }
+
+  resetPassword(body: any) {
+    let url = `${this.serverURL}/api/applicationuser/ResetPassword?email=${body.Email}&token=${body.Token}&newPassword=${body.NewPassword}`
+    return this.http.get(url)
+  }
+
   roleMatch(allowedRoles): boolean {
     var isMatch = false;
     var payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
