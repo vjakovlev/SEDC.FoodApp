@@ -12,7 +12,6 @@ export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         if (localStorage.getItem("token") != null) {
-            console.log("TOKEN===> ",localStorage.getItem("token"))
             const clonedReq = req.clone({
                 headers: req.headers.set("Authorization", "Bearer " + localStorage.getItem("token"))
             });
@@ -21,8 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
                     succ => {},
                     err => {
                         if (err.status == 401) {
-                            localStorage.removeItem("token")
-                            this.router.navigateByUrl("user/login");
+                            this.router.navigateByUrl("user/forbidden");
                         } else if (err.status == 403) {
                             this.router.navigateByUrl("/forbidden");
                         }

@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
+  userDetails: any
+
   constructor(private http: HttpClient) {}
 
   register(body) : Observable<any> {   
@@ -21,6 +23,15 @@ export class UserService {
     return this.http.get("https://localhost:5001/api/UserProfile");
   }
 
+  changeUserPassword(body: any) {
+
+    var payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
+    var userId = payLoad.UserId
+    body.UserId = userId
+
+    return this.http.post("https://localhost:5001/api/applicationuser/ChangePassword", body);
+  }
+
   roleMatch(allowedRoles): boolean {
     var isMatch = false;
     var payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
@@ -33,6 +44,7 @@ export class UserService {
     });
     return isMatch;
   }
+  
 
 }
 
