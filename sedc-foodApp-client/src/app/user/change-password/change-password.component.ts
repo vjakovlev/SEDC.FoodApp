@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class ChangePasswordComponent implements OnInit {
 
   message: any = ""
+  messageColor: any = "danger"
 
   formModel = new FormGroup({
     CurrentPassword: new FormControl('', Validators.required),
@@ -33,10 +34,12 @@ export class ChangePasswordComponent implements OnInit {
 
     this.userService.changeUserPassword(model).subscribe({
       next: res => {
+        this.messageColor = "white"
         this.message = res.message
         this.formModel.reset()
       },
       error: err => {
+        this.messageColor = "danger"
         this.message = err.error
         this.formModel.reset()
       }

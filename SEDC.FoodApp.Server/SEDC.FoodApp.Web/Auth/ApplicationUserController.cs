@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -59,6 +60,7 @@ namespace SEDC.FoodApp.Web.Auth
 
         [HttpPost]
         [Route("Login")]
+        //POST : /api/applicationuser/login
         public async Task<IActionResult> LoginUser([FromBody] LoginRequestModel model)
         {
             var user = await _userManager.FindByNameAsync(model.Username);
@@ -104,6 +106,7 @@ namespace SEDC.FoodApp.Web.Auth
 
         [HttpPost]
         [Route("ChangePassword")]
+        //POST : /api/applicationuser/ChangePassword
         public async Task<IActionResult> ChangeUserPassword([FromBody] ChangePasswordRequestModel model) 
         {
             try
