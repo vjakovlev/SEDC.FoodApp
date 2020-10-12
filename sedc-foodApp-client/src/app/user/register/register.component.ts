@@ -53,10 +53,9 @@ export class RegisterComponent implements OnInit {
     
     this.isLoading = true;
     this.userService.register(body).subscribe({
-      next: res => {
-        console.log(res)
+      error: err => {
+        this.isLoading = false
       },
-      error: err => console.log(err),
       complete: () => {
         this.isLoading = false
         this.router.navigateByUrl("/user/login");

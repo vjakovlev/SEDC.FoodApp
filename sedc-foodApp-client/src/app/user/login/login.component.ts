@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
 
   message: any = ""
+  isLoading: boolean = false
 
   formModel = new FormGroup({
     UserName: new FormControl('', Validators.required),
@@ -35,19 +36,21 @@ export class LoginComponent implements OnInit {
       Password: this.formModel.value.Password
     }
 
+    this.isLoading = true;
     this.userService.login(model).subscribe({
       next: res => {
         localStorage.setItem("token", res.token);
         this.authService.checkIfUserIsLogged()
-        this.authService.checkIfUserUserIsAdmin()
-        this.router.navigateByUrl("/home");
+        this.authService.checkIfUserUserIsAdmin()     
       },
       error: err => {
         this.message = err.error
         this.formModel.reset()
+        this.isLoading = false
       },
       complete: () => {
-        
+        this.isLoading = false
+        this.router.navigateByUrl("/home");
       }
     })
 
