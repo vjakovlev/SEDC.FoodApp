@@ -1,35 +1,42 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  serverURL = environment.apiServer
   userDetails: any
 
   constructor(private http: HttpClient) {}
 
   register(body) : Observable<any> {   
-    return this.http.post("https://localhost:5001/api/applicationuser/register", body);
+    let url = `${this.serverURL}/api/applicationuser/register`
+    return this.http.post(url, body);
   }
 
   login(body) : Observable<Token> {
-    return this.http.post<Token>("https://localhost:5001/api/applicationuser/login", body);
+    let url = `${this.serverURL}/api/applicationuser/login`
+    return this.http.post<Token>(url, body);
   }
 
   getUserProfile() {
-    return this.http.get("https://localhost:5001/api/UserProfile");
+    let url = `${this.serverURL}/api/UserProfile`
+    return this.http.get(url);
   }
 
   changeUserPassword(body: any) {
-
     var payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
     var userId = payLoad.UserId
     body.UserId = userId
 
-    return this.http.post("https://localhost:5001/api/applicationuser/ChangePassword", body);
+    let url = `${this.serverURL}/api/applicationuser/ChangePassword`
+
+    return this.http.post<any>(url, body);
   }
 
   roleMatch(allowedRoles): boolean {
@@ -45,7 +52,6 @@ export class UserService {
     return isMatch;
   }
   
-
 }
 
 export interface Token {

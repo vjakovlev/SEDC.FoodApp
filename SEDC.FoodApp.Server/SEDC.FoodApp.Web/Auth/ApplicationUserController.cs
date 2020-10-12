@@ -93,13 +93,12 @@ namespace SEDC.FoodApp.Web.Auth
                 }
                 catch (Exception ex)
                 {
-
                     throw ex;
                 }
             }
             else
             {
-                return BadRequest(new { message = "Username or password incorect" });
+                return BadRequest("Username or password incorect!");
             }
         }
 
@@ -107,7 +106,6 @@ namespace SEDC.FoodApp.Web.Auth
         [Route("ChangePassword")]
         public async Task<IActionResult> ChangeUserPassword([FromBody] ChangePasswordRequestModel model) 
         {
-
             try
             {
                 var user = await _userManager.FindByIdAsync(model.UserId);
@@ -115,11 +113,11 @@ namespace SEDC.FoodApp.Web.Auth
 
                 if (response.Succeeded)
                 {
-                    return Ok();
+                    return Ok(new { message = "Password changed successfully!" });
                 }
                 else 
                 {
-                    return BadRequest("Passwords dosn't match!");
+                    return BadRequest("Passwords does not match!");
                 }
             }
             catch (Exception ex)

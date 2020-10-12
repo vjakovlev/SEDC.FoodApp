@@ -11,6 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  message: any = ""
+
   formModel = new FormGroup({
     UserName: new FormControl('', Validators.required),
     Password: new FormControl('', Validators.required),
@@ -40,7 +42,10 @@ export class LoginComponent implements OnInit {
         this.authService.checkIfUserUserIsAdmin()
         this.router.navigateByUrl("/home");
       },
-      error: err => console.warn(err),
+      error: err => {
+        this.message = err.error
+        this.formModel.reset()
+      },
       complete: () => {
         
       }
