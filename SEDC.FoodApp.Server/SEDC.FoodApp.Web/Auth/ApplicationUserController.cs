@@ -4,12 +4,15 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SEDC.FoodApp.Auth.Models;
 using SEDC.FoodApp.Mailer;
@@ -24,6 +27,7 @@ namespace SEDC.FoodApp.Web.Auth
         public IConfiguration Configuration { get; }
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
+        private ILogger<ApplicationUserController> _logger;
 
         public ApplicationUserController(IConfiguration configuration,
                                          UserManager<ApplicationUser> userManager,
@@ -56,7 +60,7 @@ namespace SEDC.FoodApp.Web.Auth
             }
             catch (Exception ex)
             {
-                throw ex;
+                return BadRequest(ex.Message);
             }
         }
 
@@ -135,23 +139,34 @@ namespace SEDC.FoodApp.Web.Auth
         [Route("ForgotPassword")]
         public async Task<IActionResult> ForgotUserPassword([FromBody] ForgotPasswordRequestModel model) 
         {
-            
-            var user = await _userManager.FindByEmailAsync(model.Email);
-            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var clientAddress = Configuration.GetSection("ApplicationSttings").GetValue<string>("ClientAddress");
 
-            var passwordResetLink = $"{clientAddress}/user/reset-password?email={user.Email}&token={token}";
-
-            var newEmail = new Email()
+            try
             {
-                To = user.Email,
-                Subject = "reset password",
-                Body = $"Reset password here: {passwordResetLink}"
-            };
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
-            SendMail.Execute(newEmail);
+                byte[] tokenBytes = Encoding.UTF8.GetBytes(token);
+                var codeEncoded = WebEncoders.Base64UrlEncode(tokenBytes);
 
-            return Ok();
+                var clientAddress = Configuration.GetSection("ApplicationSttings").GetValue<string>("ClientAddress");
+                var passwordResetLink = $"{clientAddress}/user/reset-password?email={user.Email}&token={codeEncoded}";
+
+                var newEmail = new Email()
+                {
+                    To = user.Email,
+                    Subject = "reset password",
+                    Body = $"Reset password here: {passwordResetLink}"
+                };
+
+                SendMail.Execute(newEmail);
+
+                return Ok(new { message = $"A link to reset your password has been sent to your email address: {maskEmail(user.Email)}" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+     
         }
 
         [HttpGet]
@@ -159,11 +174,22 @@ namespace SEDC.FoodApp.Web.Auth
         public async Task<IActionResult> ResetUserPassword([FromQuery] string email, string token, string newPassword)
         {
             var user = await _userManager.FindByEmailAsync(email);
+            var codeDecodedBytes = WebEncoders.Base64UrlDecode(token);
+            var codeDecoded = Encoding.UTF8.GetString(codeDecodedBytes);
+            var response = await _userManager.ResetPasswordAsync(user, codeDecoded, newPassword);
 
-            var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
+            if (response.Succeeded) 
+            {
+                return Ok(new { message = $"Password successfully changed!" });
+            }
 
+            return BadRequest("Error has occured, password not changed!");
+        }
 
-            return Ok();
+        private string maskEmail(string email) 
+        {
+            string pattern = @"(?<=[\w]{1})[\w-\._\+%]*(?=[\w]{1}@)";
+            return Regex.Replace(email, pattern, m => new string('*', m.Length));
         }
     }
 }

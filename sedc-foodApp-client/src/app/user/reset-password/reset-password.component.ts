@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -12,14 +12,13 @@ export class ResetPasswordComponent implements OnInit {
 
   userEmail: string
   token: string
+  message: any
 
-  formModel = new FormGroup({
-    Password: new FormControl('', Validators.required),
-    ConfirmPassword: new FormControl('', Validators.required)
-  })
+  isLoading: boolean
 
   constructor(private route: ActivatedRoute,
-              private userService: UserService) { }
+    private userService: UserService,
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe({
@@ -30,6 +29,21 @@ export class ResetPasswordComponent implements OnInit {
     })
   }
 
+  formModel = this.fb.group({
+    Password: ['', [Validators.required, Validators.minLength(4)]],
+    ConfirmPassword: ['', Validators.required]
+  }, {validator: this.comparePasswords})
+
+  comparePasswords(fb: FormGroup) {
+    let confirmPswrdCtrl = fb.get('ConfirmPassword');
+    if (confirmPswrdCtrl.errors == null || 'passwordMismatch' in confirmPswrdCtrl.errors) {
+      if (fb.get('Password').value != confirmPswrdCtrl.value)
+        confirmPswrdCtrl.setErrors({ passwordMismatch: true });
+      else
+        confirmPswrdCtrl.setErrors(null);
+    }
+  }
+
   onSubmit() {
 
     let model = {
@@ -38,9 +52,17 @@ export class ResetPasswordComponent implements OnInit {
       Token : this.token
     }
 
+    this.isLoading = true
+
     this.userService.resetPassword(model).subscribe({
-      next: res => console.log(res),
-      error: err => console.warn(err)
+      next: res => {
+        this.message = res
+      },
+      error: err => {
+        this.message = err.error
+        this.isLoading = false
+      },
+      complete: () => this.isLoading = false
     })
 
   } 

@@ -8,6 +8,10 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
+
+  isLoading: boolean = false
+
+  message: any = ""
   
   formModel = new FormGroup({
     EmailAddress: new FormControl('', Validators.required)
@@ -23,9 +27,18 @@ export class ForgotPasswordComponent implements OnInit {
       Email: this.formModel.value.EmailAddress
     }
 
+    this.isLoading = true;
+
     this.userService.forgotUserPassword(model).subscribe({
-      next: res => console.log(res),
-      error: err => console.warn(err)
+      next: res => {
+        this.message = res.message
+      },
+      error: err => {
+        this.message = err.error
+      },
+      complete: () => {
+        this.isLoading = false
+      }
     })
 
   }

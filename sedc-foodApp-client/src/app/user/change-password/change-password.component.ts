@@ -11,6 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ChangePasswordComponent implements OnInit {
 
+  isLoading: boolean = false
+
   message: any = ""
   messageColor: any = "danger"
 
@@ -31,6 +33,8 @@ export class ChangePasswordComponent implements OnInit {
       NewPassword: this.formModel.value.NewPassword
     }
 
+    this.isLoading = true;
+
     this.userService.changeUserPassword(model).subscribe({
       next: res => {
         this.messageColor = "white"
@@ -40,7 +44,11 @@ export class ChangePasswordComponent implements OnInit {
       error: err => {
         this.messageColor = "danger"
         this.message = err.error
+        this.isLoading = false;
         this.formModel.reset()
+      },
+      complete: () => {
+        this.isLoading = false;
       }
     }) 
 

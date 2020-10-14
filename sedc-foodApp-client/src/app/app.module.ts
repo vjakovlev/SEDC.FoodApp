@@ -23,6 +23,7 @@ import { AuthService } from './auth/auth.service';
 import { ChangePasswordComponent } from './user/change-password/change-password.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ResetPasswordComponent } from './user/reset-password/reset-password.com
     ChangePasswordComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
