@@ -6,11 +6,13 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['../user.component.css', './register.component.css']
 })
 export class RegisterComponent implements OnInit {
 
   isLoading: boolean = false
+
+  message: any
 
   constructor(public userService: UserService,
               private fb: FormBuilder,
@@ -54,6 +56,7 @@ export class RegisterComponent implements OnInit {
     this.isLoading = true;
     this.userService.register(body).subscribe({
       error: err => {
+        this.message = err.error
         this.isLoading = false
       },
       complete: () => {

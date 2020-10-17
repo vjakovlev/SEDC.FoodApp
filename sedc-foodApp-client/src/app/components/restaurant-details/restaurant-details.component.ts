@@ -14,15 +14,15 @@ export class RestaurantDetailsComponent implements OnInit {
   restaurant: any
   
 
-  constructor(private _activatedRoute: ActivatedRoute,
-              private _adminPanelService: AdminPanelService) { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private adminPanelService: AdminPanelService) { }
 
   ngOnInit(): void {
-    this._activatedRoute.params.subscribe((params:any) => {
+    this.activatedRoute.params.subscribe((params:any) => {
       this.restaurantId = params.id;
     })
 
-    this._adminPanelService.getRestaurantById(this.restaurantId).subscribe({
+    this.adminPanelService.getRestaurantById(this.restaurantId).subscribe({
       next: data => this.restaurant = data
     })
   }

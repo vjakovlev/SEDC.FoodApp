@@ -21,6 +21,8 @@ namespace SEDC.FoodApp.Web.Controllers
             _restorantService = restorantService;
         }
 
+        //TODO: implement error handling
+
         //api/AdminPanel/AddRestaurant
         [HttpPost("AddRestaurant")]
         public async Task<IActionResult> AddRestaurantAsync([FromBody] RestaurantRequestModel model) 

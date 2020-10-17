@@ -41,8 +41,22 @@ namespace SEDC.FoodApp.Web.Auth
         [HttpPost]
         [Route("Register")]
         //POST : /api/applicationuser/register
-        public async Task<Object> RegisterUser([FromBody] RegisterRequestModel model)
+        public async Task<IActionResult> RegisterUser([FromBody] RegisterRequestModel model)
         {
+            var usernameExist = await _userManager.FindByNameAsync(model.UserName);
+
+            if (usernameExist != null)
+            {
+                return BadRequest("This username is already used!");
+            }
+
+            var mailExist = await _userManager.FindByEmailAsync(model.Email);
+
+            if (mailExist != null)
+            {
+                return BadRequest("This email address is already used!");
+            }
+
             model.Role = "CUSTOMER";
 
             var applicationUser = new ApplicationUser()
@@ -50,7 +64,7 @@ namespace SEDC.FoodApp.Web.Auth
                 UserName = model.UserName,
                 Email = model.Email,
                 FullName = model.FullName
-            };
+            };  
 
             try
             {

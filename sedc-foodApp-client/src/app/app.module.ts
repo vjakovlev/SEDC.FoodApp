@@ -24,6 +24,7 @@ import { ChangePasswordComponent } from './user/change-password/change-password.
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { LoaderComponent } from './shared/loader/loader.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   providers: [
     AdminPanelService,

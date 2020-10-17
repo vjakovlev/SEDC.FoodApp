@@ -32,3 +32,7 @@ export enum MealType {
   Deserts,
   Drinks,
 }
+
+export interface Token {
+  token: string
+}

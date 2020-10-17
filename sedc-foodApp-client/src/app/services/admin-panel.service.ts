@@ -19,8 +19,9 @@ export class AdminPanelService {
   constructor(private http: HttpClient,
               private config: ConfigService) {}
 
-  getAllRestoraunts() {
-    let url = `${this.serverURL}/api/AdminPanel/GetRestaurants`;
+  getAllRestoraunts(item) {
+    item.municipality = item.municipality === "" ? "" : parseInt(item.municipality)
+    let url = `${this.serverURL}/api/AdminPanel/GetRestaurants?name=${item.name}&&address=${item.address}&&municipality=${item.municipality}`;
     return this.http.get(url);
   }
 
@@ -37,6 +38,11 @@ export class AdminPanelService {
   addMenuItem(request:MenuItemRequestModel) {
     let url = `${this.serverURL}/api/AdminPanel/updateRestoraunt`;
     return this.http.post<MenuItemRequestModel>(url, request);
+  }
+
+  deleteRestaurant(id) {
+    let url = `${this.serverURL}/api/AdminPanel/DeleteRestaurant?id=${id}`;
+    return this.http.delete(url);
   }
 
 }

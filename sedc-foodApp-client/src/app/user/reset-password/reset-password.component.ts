@@ -6,7 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.css']
+  styleUrls: ['../user.component.css', './reset-password.component.css']
 })
 export class ResetPasswordComponent implements OnInit {
 
@@ -56,7 +56,7 @@ export class ResetPasswordComponent implements OnInit {
 
     this.userService.resetPassword(model).subscribe({
       next: res => {
-        this.message = res
+        this.message = res.message
       },
       error: err => {
         this.message = err.error

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Token } from '../models/request-models/restoran-model';
 
 
 @Injectable({
@@ -46,7 +47,7 @@ export class UserService {
 
   resetPassword(body: any) {
     let url = `${this.serverURL}/api/applicationuser/ResetPassword?email=${body.Email}&token=${body.Token}&newPassword=${body.NewPassword}`
-    return this.http.get(url)
+    return this.http.get<any>(url)
   }
 
   roleMatch(allowedRoles): boolean {
@@ -62,8 +63,4 @@ export class UserService {
     return isMatch;
   }
   
-}
-
-export interface Token {
-  token: string
 }

@@ -1,35 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MenuItemRequestModel, Municipality, RestaurantRequestModel, RestaurantResponseModel } from 'src/app/models/request-models/restoran-model';
 import { AdminPanelService } from '../../services/admin-panel.service'
-
 
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.component.html',
-  styleUrls: ['./admin-panel.component.css']
+  styleUrls: ['./admin-panel.component.css'],
 })
 export class AdminPanelComponent implements OnInit {
+
+  modalRef: BsModalRef;
 
   restoraunts: any;
 
   requestForm = new FormGroup({
     name: new FormControl(''),
     address: new FormControl(''),
+    municipality: new FormControl(Municipality.karpos)
+  })
+
+  filterForm = new FormGroup({
+    name: new FormControl(''),
+    address: new FormControl(''),
+    municipality: new FormControl('')
+  })
+
+  municipalityFlterForm = new FormGroup({
     municipality: new FormControl('')
   })
 
   municipalityList = [Municipality.karpos, Municipality.centar, Municipality.aerodrom];
 
-
-  constructor(private adminPanelService: AdminPanelService) {}
+  constructor(private adminPanelService: AdminPanelService,
+              private modalService: BsModalService) {}
 
   ngOnInit(): void {
     this.getAllRestoraunts()
   }
 
   onSubmit() {
-
     let requestModel = new RestaurantRequestModel();
     requestModel.name = this.requestForm.value.name;
     requestModel.address = this.requestForm.value.address;
@@ -37,28 +49,65 @@ export class AdminPanelComponent implements OnInit {
 
     this.adminPanelService.addRestoraunt(requestModel).subscribe({
       next: res => {
-        console.log(res)
+
       },
       error: err => console.warn(err),
-      complete: () => console.log("add restaurant done")
+      complete: () => {
+        this.modalService._hideModal()
+        this.modalService._hideBackdrop()
+        this.getAllRestoraunts()
+      }
     })
-    
   }
 
   getAllRestoraunts() {
-    this.adminPanelService.getAllRestoraunts().subscribe({
+    let item = {
+      name: this.filterForm.value.name,
+      address: this.filterForm.value.address,
+      municipality: this.municipalityFlterForm.value.municipality
+    }
+
+    this.adminPanelService.getAllRestoraunts(item).subscribe({
       next: res => {
         this.restoraunts = res
-        console.log(res)
       },
       error: err => console.warn(err),
-      complete: () => console.log("get all restoraunts done")
+      complete: () => {}
     })
   }
 
   addMenuItem() {
     let requestModel = new MenuItemRequestModel;
     // requestModel.calories = 
+  }
+
+  mapMunicipality(input) {
+    switch(input) {
+      case 1:
+        return "Karposh";
+        break;
+      case 2:
+        return "Centar";
+        break;
+      case 3: 
+        return "Aerodrom"
+        break;
+    }
+
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  deleteRestaurant(id) {
+    this.adminPanelService.deleteRestaurant(id).subscribe({
+      next: res => console.log(res),
+      error: err => console.warn(err),
+      complete: () => {
+        this.getAllRestoraunts()
+      }
+    })
   }
 
 
