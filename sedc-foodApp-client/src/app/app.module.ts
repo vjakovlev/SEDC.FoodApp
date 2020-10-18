@@ -25,6 +25,7 @@ import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { IsVegePipePipe } from './pipes/is-vege-pipe.pipe';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     LoaderComponent,
+    IsVegePipePipe,
   ],
   imports: [
     BrowserModule,

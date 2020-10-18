@@ -25,7 +25,7 @@ namespace SEDC.FoodApp.Web.Controllers
 
         //api/AdminPanel/AddRestaurant
         [HttpPost("AddRestaurant")]
-        public async Task<IActionResult> AddRestaurantAsync([FromBody] RestaurantRequestModel model) 
+        public async Task<IActionResult> AddRestaurantAsync([FromBody] RestaurantRequestModel model)
         {
             await _restorantService.CreateNewRestaurantAsync(model);
             return Ok();
@@ -34,9 +34,9 @@ namespace SEDC.FoodApp.Web.Controllers
         //api/AdminPanel/GetRestaurants queries are optional ex: ?id=12345
         [HttpGet("GetRestaurants")]
         public async Task<IActionResult> GetRestaurantsAsync([FromQuery] string id,
-                                                             [FromQuery] string name, 
+                                                             [FromQuery] string name,
                                                              [FromQuery] string address,
-                                                             [FromQuery] Municipality? municipality) 
+                                                             [FromQuery] Municipality? municipality)
         {
             var requestModel = new RestaurantRequestModel()
             {
@@ -50,9 +50,33 @@ namespace SEDC.FoodApp.Web.Controllers
             return Ok(response);
         }
 
-        //api/AdminPanel/UpdateRestaurantMenu 
+
+        //api/AdminPanel/GetRestaurantMenuItems queries are optional ex: ?id=12345
+        [HttpGet("GetRestaurantMenuItems")]
+        public async Task<IActionResult> GetRestaurantMenuItemsAsync([FromQuery] string id) 
+        
+        {
+            var restaurant = await _restorantService.GetRestaurantByIdAsync(id);   
+            return Ok(restaurant.Menu);
+        }
+
+        //api/AdminPanel/UpdateRestaurant
+        [HttpPost("UpdateRestaurant")]
+        public async Task<IActionResult> UpdateRestaurantAsync([FromBody] UpdateRestaurantRequestModel requestModel) 
+        {
+            var restaurant = await _restorantService.GetRestaurantByIdAsync(requestModel.Id);
+            restaurant.Address = requestModel.Address;
+            restaurant.Name = requestModel.Name;
+            restaurant.Municipality = requestModel.Municipality;
+
+            await _restorantService.UpdateRestaurantAsync(restaurant);
+
+            return Ok();
+        }
+
+        //api/AdminPanel/UpdateRestaurantMenu
         [HttpPost("UpdateRestaurantMenu")]
-        public async Task<IActionResult> UpdateRestaurantMenuAsync([FromBody] UpdateRestaurantMenuRequestModel requestModel) 
+        public async Task<IActionResult> UpdateRestaurantMenuAsync([FromBody] UpdateRestaurantRequestModel requestModel)
         {
             var restaurant = await _restorantService.GetRestaurantByIdAsync(requestModel.Id);
 

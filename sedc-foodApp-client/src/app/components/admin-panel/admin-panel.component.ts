@@ -12,6 +12,10 @@ import { AdminPanelService } from '../../services/admin-panel.service'
 })
 export class AdminPanelComponent implements OnInit {
 
+  isEditMode: boolean
+
+  restaurantId: string
+
   modalRef: BsModalRef;
 
   restoraunts: any;
@@ -41,25 +45,6 @@ export class AdminPanelComponent implements OnInit {
     this.getAllRestoraunts()
   }
 
-  onSubmit() {
-    let requestModel = new RestaurantRequestModel();
-    requestModel.name = this.requestForm.value.name;
-    requestModel.address = this.requestForm.value.address;
-    requestModel.municipality = parseInt(this.requestForm.value.municipality);
-
-    this.adminPanelService.addRestoraunt(requestModel).subscribe({
-      next: res => {
-
-      },
-      error: err => console.warn(err),
-      complete: () => {
-        this.modalService._hideModal()
-        this.modalService._hideBackdrop()
-        this.getAllRestoraunts()
-      }
-    })
-  }
-
   getAllRestoraunts() {
     let item = {
       name: this.filterForm.value.name,
@@ -76,10 +61,61 @@ export class AdminPanelComponent implements OnInit {
     })
   }
 
-  addMenuItem() {
-    let requestModel = new MenuItemRequestModel;
-    // requestModel.calories = 
+  addRestaurant() {
+    let requestModel = new RestaurantRequestModel();
+    requestModel.name = this.requestForm.value.name;
+    requestModel.address = this.requestForm.value.address;
+    requestModel.municipality = parseInt(this.requestForm.value.municipality);
+
+    this.adminPanelService.addRestoraunt(requestModel).subscribe({
+      next: res => {
+
+      },
+      error: err => console.warn(err),
+      complete: () => {
+        this.closeModal()
+        this.getAllRestoraunts()
+      }
+    })
   }
+
+  updateRestaurant() {
+    let body = Object.assign(this.requestForm.value, { id : this.restaurantId})
+    body.municipality = parseInt(body.municipality)
+
+    this.adminPanelService.updateRestaurant(body).subscribe({
+      complete: () => { 
+        this.closeModal()
+        this.getAllRestoraunts() 
+      }
+    }) 
+  }
+
+  deleteRestaurant(id) {
+    this.adminPanelService.deleteRestaurant(id).subscribe({
+      next: res => console.log(res),
+      error: err => console.warn(err),
+      complete: () => {
+        this.getAllRestoraunts()
+      }
+    })
+  }
+
+  openModal(template: TemplateRef<any>, restaurant?: any) {  
+    this.modalRef = this.modalService.show(template);
+
+    if (!!restaurant) {
+      this.isEditMode = true;
+      const {id, menu, ...rest} = restaurant
+      this.requestForm.setValue(rest)
+      this.restaurantId = id;
+    }
+  }
+
+  closeModal() {
+    this.modalService._hideModal()
+    this.modalService._hideBackdrop()
+  } 
 
   mapMunicipality(input) {
     switch(input) {
@@ -95,20 +131,5 @@ export class AdminPanelComponent implements OnInit {
     }
 
   }
-
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
-
-  deleteRestaurant(id) {
-    this.adminPanelService.deleteRestaurant(id).subscribe({
-      next: res => console.log(res),
-      error: err => console.warn(err),
-      complete: () => {
-        this.getAllRestoraunts()
-      }
-    })
-  }
-
 
 }

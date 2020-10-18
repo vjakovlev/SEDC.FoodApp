@@ -8,8 +8,8 @@ namespace SEDC.FoodApp.RequestModels.Models
     public class MenuItemRequestModel
     {
         public string Name { get; set; }
-        public int Price { get; set; }
-        public int Calories { get; set;  }
+        public string Price { get; set; }
+        public string Calories { get; set;  }
         public bool IsVege { get; set; }
         public MealType MealType { get; set; }
     }

@@ -45,4 +45,19 @@ export class AdminPanelService {
     return this.http.delete(url);
   }
 
+  updateRestaurant(restaurant) {
+    let url = `${this.serverURL}/api/AdminPanel/UpdateRestaurant`;
+    return this.http.post(url, restaurant);
+  }
+
+  updateRestaurantMenu(restaurant) {
+    let url = `${this.serverURL}/api/AdminPanel/UpdateRestaurantMenu`;
+    return this.http.post(url, restaurant);
+  }
+
+  getRestaurantMenu(id) {
+    let url = `${this.serverURL}/api/AdminPanel/GetRestaurantMenuItems?id=${id}`;
+    return this.http.get(url);
+  }
+
 }

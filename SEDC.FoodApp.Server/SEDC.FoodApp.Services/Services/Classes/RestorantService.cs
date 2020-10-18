@@ -84,6 +84,11 @@ namespace SEDC.FoodApp.Services.Services.Classes
             return await _restaurantRepository.GetRestaurantByIdAsync(id);
         }
 
+        public async Task UpdateRestaurantAsync(Restaurant restaurant) 
+        {
+            await _restaurantRepository.UpdateRestaurantMenu(restaurant);
+        }
+
         public async Task UpdateRestaurantMenuAsync(Restaurant restaurant, MenuItemRequestModel menuItem) 
         {
 

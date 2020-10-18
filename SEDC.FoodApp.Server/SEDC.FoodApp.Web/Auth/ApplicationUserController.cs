@@ -27,7 +27,6 @@ namespace SEDC.FoodApp.Web.Auth
         public IConfiguration Configuration { get; }
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
-        private ILogger<ApplicationUserController> _logger;
 
         public ApplicationUserController(IConfiguration configuration,
                                          UserManager<ApplicationUser> userManager,
