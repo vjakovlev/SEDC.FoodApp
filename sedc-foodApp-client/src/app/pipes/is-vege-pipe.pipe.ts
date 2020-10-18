@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'isVegePipe'
 })
 export class IsVegePipePipe implements PipeTransform { 
-  transform(value: unknown) {
-    return value === true ? "Yes" : "No"
+  transform(value: boolean) {
+    return value ? "Yes" : "No"
   }
 }

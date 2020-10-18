@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SEDC.FoodApp.DomainModels.Enums;
+using SEDC.FoodApp.DomainModels.Models;
 using SEDC.FoodApp.RequestModels.Models;
 using SEDC.FoodApp.Services.Services.Interfaces;
 
@@ -50,14 +51,20 @@ namespace SEDC.FoodApp.Web.Controllers
             return Ok(response);
         }
 
-
         //api/AdminPanel/GetRestaurantMenuItems queries are optional ex: ?id=12345
         [HttpGet("GetRestaurantMenuItems")]
-        public async Task<IActionResult> GetRestaurantMenuItemsAsync([FromQuery] string id) 
-        
+        public async Task<IActionResult> GetRestaurantMenuItemsAsync([FromQuery] string id,
+                                                                     [FromQuery] string name)    
         {
-            var restaurant = await _restorantService.GetRestaurantByIdAsync(id);   
-            return Ok(restaurant.Menu);
+            var restaurant = await _restorantService.GetRestaurantByIdAsync(id);
+            var menuItems = restaurant.Menu;
+
+            if (name != null) 
+            {
+                menuItems = restaurant.Menu.FindAll(x => x.Name.ToLower().Contains(name.ToLower()));
+            }
+
+            return Ok(menuItems);
         }
 
         //api/AdminPanel/UpdateRestaurant

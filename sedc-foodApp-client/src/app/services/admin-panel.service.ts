@@ -55,9 +55,15 @@ export class AdminPanelService {
     return this.http.post(url, restaurant);
   }
 
-  getRestaurantMenu(id) {
-    let url = `${this.serverURL}/api/AdminPanel/GetRestaurantMenuItems?id=${id}`;
+  getRestaurantMenu(id, name) {
+    let url = `${this.serverURL}/api/AdminPanel/GetRestaurantMenuItems?id=${id}&&name=${name}`;
+
     return this.http.get(url);
+  }
+
+  deleteMenuItem(restaurantId, menuItemId) {
+    let url = `${this.serverURL}/api/AdminPanel/DeleteMenuItem?restaurantId=${restaurantId}&&menuItemId=${menuItemId}`;
+    return this.http.delete(url);
   }
 
 }

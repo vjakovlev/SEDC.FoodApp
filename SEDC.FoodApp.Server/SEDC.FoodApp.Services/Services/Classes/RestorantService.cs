@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -92,17 +93,38 @@ namespace SEDC.FoodApp.Services.Services.Classes
         public async Task UpdateRestaurantMenuAsync(Restaurant restaurant, MenuItemRequestModel menuItem) 
         {
 
-            var dtoMenuItem = new MenuItem()
+            
+            if (menuItem.Id == null)
             {
-                Id = Guid.NewGuid().ToString(),
-                Name = menuItem.Name,
-                Calories = menuItem.Calories,
-                IsVege = menuItem.IsVege,
-                Price = menuItem.Price,
-                MealType = menuItem.MealType
-            };
+                var dtoMenuItem = new MenuItem()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = menuItem.Name,
+                    Calories = menuItem.Calories,
+                    IsVege = menuItem.IsVege,
+                    Price = menuItem.Price,
+                    MealType = menuItem.MealType
+                };
 
-            restaurant.Menu.Add(dtoMenuItem);
+                restaurant.Menu.Add(dtoMenuItem);
+            }
+            else 
+            {
+                for (int i = 0; i < restaurant.Menu.Count; i++)
+                {
+                    if (restaurant.Menu[i].Id == menuItem.Id)
+                    {
+                        restaurant.Menu[i].Id = menuItem.Id;
+                        restaurant.Menu[i].Name = menuItem.Name;
+                        restaurant.Menu[i].Calories = menuItem.Calories;
+                        restaurant.Menu[i].Price = menuItem.Price;
+                        restaurant.Menu[i].IsVege = menuItem.IsVege;
+                        restaurant.Menu[i].MealType = menuItem.MealType;
+
+                        break;
+                    }
+                }
+            }
 
             await _restaurantRepository.UpdateRestaurantMenu(restaurant);
         }

@@ -1,28 +1,28 @@
 <!-- header -->
 <div class="card mt-2 mb-2">
   <div class="card-body">
-    
     <div class="d-flex">
-
+      <button class="btn btn-success" routerLink="/admin">Back</button>
+      <div class="d-flex align-items-center pt-1 mr-2 ml-4">
+        <label>Filter by: </label>
+      </div>
       <div class="mr-auto">
-        
+        <form [formGroup]="filterForm" (input)="getMenuItems()">
+          <input type="text" class="form-control" formControlName="name" placeholder="Name">
+        </form>
       </div>
-  
       <div>
-        <button type="button" class="btn btn-primary" (click)="openModal(template)">Add Menu Item</button>
+        <button type="button" class="btn btn-success" (click)="openModal(template)">Add Menu Item</button>
       </div>
-
     </div>
-
-
   </div>
 </div>
 
 <!-- modal -->
 <ng-template #template>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title pull-left">{{isEditMode ? 'Edit Menu Item' : 'Add Menu Item'}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -57,12 +57,9 @@
         <label class="form-check-label" for="isVege">Is Vegeterian</label>
       </div>
 
-
-      <button (click)="addMenuItem()">add</button>
-
-      <!-- <div class="d-flex justify-content-center">
-        <button type="button"class="btn btn-outline-success" (click)="isEditMode ? updateRestaurant() : addRestaurant()">{{isEditMode ? 'Save' : 'Add Restaurant'}}</button>
-      </div> -->
+      <div class="d-flex justify-content-center">
+        <button type="button"class="btn btn-outline-success mt-2 mb-2" (click)="addMenuItem()">{{isEditMode ? 'Save' : 'Add Menu Item'}}</button>
+      </div>
 
     </form>
 
@@ -71,7 +68,7 @@
 
 
 <!-- table -->
-<div class="card p-2">
+<div class="card p-2 mb-2">
   <table class="table table-striped">
       <thead>
         <tr>
@@ -95,7 +92,8 @@
           <td>{{ item.price }}</td>
           <td>{{ mapMealTypes(item.mealType) }}</td>
           <td>
-            <button class="btn btn-outline-success">Options</button>
+            <button class="btn btn-outline-warning mr-2" (click)="openModal(template, item)">Edit</button>
+            <button class="btn btn-outline-danger" (click)="deleteMenuItem(item.id)">Delete</button>
           </td>
         </tr>
       </tbody>

@@ -18,6 +18,7 @@ export enum Municipality {
 }
 
 export class MenuItemRequestModel {
+  id: string
   name: string;
   price: number;
   calories:number;

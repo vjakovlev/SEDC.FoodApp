@@ -23,7 +23,7 @@ export class AdminPanelComponent implements OnInit {
   requestForm = new FormGroup({
     name: new FormControl(''),
     address: new FormControl(''),
-    municipality: new FormControl(Municipality.karpos)
+    municipality: new FormControl('')
   })
 
   filterForm = new FormGroup({
@@ -104,6 +104,10 @@ export class AdminPanelComponent implements OnInit {
   openModal(template: TemplateRef<any>, restaurant?: any) {  
     this.modalRef = this.modalService.show(template);
 
+    if(!restaurant) {
+      this.requestForm.get("municipality").setValue(Municipality.karpos)
+    }
+
     if (!!restaurant) {
       this.isEditMode = true;
       const {id, menu, ...rest} = restaurant
@@ -115,6 +119,8 @@ export class AdminPanelComponent implements OnInit {
   closeModal() {
     this.modalService._hideModal()
     this.modalService._hideBackdrop()
+    this.requestForm.reset()
+    this.isEditMode = false
   } 
 
   mapMunicipality(input) {

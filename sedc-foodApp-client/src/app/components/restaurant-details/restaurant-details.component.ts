@@ -15,38 +15,47 @@ export class RestaurantDetailsComponent implements OnInit {
   modalRef: BsModalRef;
 
   restaurantId: string;
+  menuItemId: string;
 
   restaurant: any
 
   retaurantMenuItems: any
+
+  isEditMode: boolean
 
   menuItemForm = new FormGroup({
     name: new FormControl(''),
     price: new FormControl(''),
     calories: new FormControl(''),
     isVege: new FormControl(''),
-    mealType: new FormControl(MealType.Starters),
+    mealType: new FormControl(''),
+  })
+
+  filterForm = new FormGroup({
+    name: new FormControl('')
   })
 
   mealTypes = [MealType.Starters, MealType.Salads, MealType.MainDish, MealType.Deserts, MealType.Drinks];
-  
+
 
   constructor(private activatedRoute: ActivatedRoute,
-              private adminPanelService: AdminPanelService,
-              private modalService: BsModalService) { }
+    private adminPanelService: AdminPanelService,
+    private modalService: BsModalService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params:any) => {
+    this.activatedRoute.params.subscribe((params: any) => {
       this.restaurantId = params.id;
     })
 
     //da se naprai filtracija na meni itemi, nova metoda samo za meni itemi
 
-    this.getMenuItems() 
+    this.getMenuItems()
   }
 
   getMenuItems() {
-    this.adminPanelService.getRestaurantMenu(this.restaurantId).subscribe({
+    let nameFilter = this.filterForm.value.name;
+
+    this.adminPanelService.getRestaurantMenu(this.restaurantId, nameFilter).subscribe({
       next: data => {
         console.log(data)
         this.retaurantMenuItems = data
@@ -55,16 +64,19 @@ export class RestaurantDetailsComponent implements OnInit {
   }
 
   addMenuItem() {
-    let menuItem = new MenuItemRequestModel;
-    menuItem.name = this.menuItemForm.value.name
-    menuItem.calories = this.menuItemForm.value.calories
-    menuItem.price = this.menuItemForm.value.price
-    menuItem.isVege = Boolean(this.menuItemForm.value.isVege)
-    menuItem.mealType = parseInt(this.menuItemForm.value.mealType)
-
-    let requestModel = {
+    let requestModel: any = {
       id: this.restaurantId,
-      menuItem: menuItem
+      menuItem: {
+        name: this.menuItemForm.value.name,
+        calories: this.menuItemForm.value.calories,
+        price: this.menuItemForm.value.price,
+        isVege: Boolean(this.menuItemForm.value.isVege),
+        mealType: parseInt(this.menuItemForm.value.mealType)
+      }
+    }
+
+    if(this.isEditMode) {
+      requestModel.menuItem.id = this.menuItemId
     }
 
     this.adminPanelService.updateRestaurantMenu(requestModel).subscribe({
@@ -76,32 +88,53 @@ export class RestaurantDetailsComponent implements OnInit {
     })
   }
 
-  openModal(template: TemplateRef<any>) {
+  deleteMenuItem(menuItemId) {
+    this.adminPanelService.deleteMenuItem(this.restaurantId, menuItemId).subscribe({
+      complete: () => {
+        this.getMenuItems()
+      }
+    })
+  }
+
+  openModal(template: TemplateRef<any>, menuItem?: any) {
     this.modalRef = this.modalService.show(template);
+
+    if(!menuItem) {
+      this.menuItemForm.get("mealType").setValue(MealType.Starters)
+    }
+
+    if (!!menuItem) {
+      this.isEditMode = true
+      const {id, ...rest} = menuItem
+      this.menuItemForm.setValue(rest)
+      this.menuItemId = id
+    }
   }
 
   closeModal() {
+    this.menuItemForm.reset()
     this.modalService._hideModal()
     this.modalService._hideBackdrop()
+    this.isEditMode = false
   }
 
   mapMealTypes(input) {
-    switch(input) {
+    switch (input) {
       case 1:
         return "Starters";
         break;
       case 2:
         return "Salads";
         break;
-      case 3: 
+      case 3:
         return "MainDish"
         break;
-      case 4: 
+      case 4:
         return "Deserts"
         break;
-      case 5: 
+      case 5:
         return "Drinks"
-        break;  
+        break;
     }
   }
 
