@@ -11,13 +11,8 @@ import { environment } from 'src/environments/environment';
 export class AdminPanelService {
 
   serverURL = environment.apiServer
-
-  get url() {
-    return this.config.getUrl()
-  }
-
-  constructor(private http: HttpClient,
-              private config: ConfigService) {}
+  
+  constructor(private http: HttpClient) {}
 
   getAllRestoraunts(item) {
     item.municipality = item.municipality === "" ? "" : parseInt(item.municipality)

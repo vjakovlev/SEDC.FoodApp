@@ -26,6 +26,7 @@ import { ResetPasswordComponent } from './user/reset-password/reset-password.com
 import { LoaderComponent } from './shared/loader/loader.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { IsVegePipePipe } from './pipes/is-vege-pipe.pipe';
+import { RestaurantService } from './services/restaurant.service';
 
 
 @NgModule({
@@ -58,13 +59,14 @@ import { IsVegePipePipe } from './pipes/is-vege-pipe.pipe';
   providers: [
     AdminPanelService,
     ConfigService,
+    RestaurantService,
     UserService,
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    },
-    AuthService
+    }   
   ],
   bootstrap: [AppComponent]
 })

@@ -90,7 +90,7 @@ namespace SEDC.FoodApp.Web
             app.UseRouting();
 
             app.UseCors(builder =>
-                builder.WithOrigins("http://localhost:4200", "https://localhost:5001")
+                builder.WithOrigins("http://localhost:4200", "https://localhost:45551")
                     .AllowAnyHeader()
                     .AllowAnyMethod());
 

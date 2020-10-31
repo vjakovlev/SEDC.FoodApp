@@ -47,8 +47,6 @@ export class RestaurantDetailsComponent implements OnInit {
       this.restaurantId = params.id;
     })
 
-    //da se naprai filtracija na meni itemi, nova metoda samo za meni itemi
-
     this.getMenuItems()
   }
 
