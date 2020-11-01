@@ -5923,19 +5923,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\viceb\\.nuget\\packages\\": {}
+    "C:\\Users\\gordo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj",
+      "projectUniqueName": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj",
       "projectName": "SEDC.FoodApp.Services",
-      "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj",
-      "packagesPath": "C:\\Users\\viceb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\obj\\",
+      "projectPath": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\SEDC.FoodApp.Services.csproj",
+      "packagesPath": "C:\\Users\\gordo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\viceb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gordo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5948,14 +5948,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj"
+            "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj"
             },
-            "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj": {
-              "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj"
+            "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj": {
+              "projectPath": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj"
             },
-            "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj": {
-              "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj"
+            "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj": {
+              "projectPath": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.RequestModels\\SEDC.FoodApp.RequestModels.csproj"
             }
           }
         }

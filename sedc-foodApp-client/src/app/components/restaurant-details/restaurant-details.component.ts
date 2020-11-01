@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { MealType, MenuItemRequestModel } from 'src/app/models/request-models/restoran-model';
+import { MealType } from 'src/app/models/request-models/restoran-model';
 import { AdminPanelService } from 'src/app/services/admin-panel.service';
 
 @Component({

@@ -15,4 +15,9 @@ export class RestaurantService {
     let url = `${this.serverURL}/api/AdminPanel/GetRestaurants`;
     return this.http.get(url);
   }
+
+  getRestaurantMenu(id: string) {
+    let url = `${this.serverURL}/api/AdminPanel/GetRestaurantMenuItems?id=${id}`;
+    return this.http.get(url);
+  }
 }

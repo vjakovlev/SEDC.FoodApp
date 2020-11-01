@@ -5,6 +5,7 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { HomeComponent } from './components/home/home.component';
 import { RestaurantDetailsComponent } from './components/restaurant-details/restaurant-details.component';
+import { RestaurantMenuComponent } from './components/restaurant-menu/restaurant-menu.component';
 import { RestaurantsComponent } from './components/restaurants/restaurants.component';
 import { ChangePasswordComponent } from './user/change-password/change-password.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path:'home', pathMatch:'full', component:HomeComponent },
   { path:'restaurant-details/:id', component:RestaurantDetailsComponent },
   { path:'restaurants', component: RestaurantsComponent },
+  { path:'restaurants/restaurant-menu/:id', component: RestaurantMenuComponent },
   { path:'forbidden', component: ForbiddenComponent },
   {
     path: 'user', component: UserComponent,
@@ -29,7 +31,7 @@ const routes: Routes = [
   { path: 'user/change-password', component: ChangePasswordComponent },
   { path: 'user/forgot-password', component: ForgotPasswordComponent },
   { path: 'user/reset-password', component: ResetPasswordComponent },
-  { path:'admin', component:AdminPanelComponent, canActivate:[AuthGuard],data :{permittedRoles:['ADMIN']} }
+  { path: 'admin', component:AdminPanelComponent, canActivate:[AuthGuard],data :{permittedRoles:['ADMIN']} }
 ]
 
 @NgModule({

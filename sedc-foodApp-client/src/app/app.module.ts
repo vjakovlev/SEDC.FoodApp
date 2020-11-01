@@ -27,6 +27,10 @@ import { LoaderComponent } from './shared/loader/loader.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { IsVegePipePipe } from './pipes/is-vege-pipe.pipe';
 import { RestaurantService } from './services/restaurant.service';
+import { RestaurantComponent } from './components/restaurant/restaurant.component';
+import { RestaurantMenuComponent } from './components/restaurant-menu/restaurant-menu.component';
+import { RestaurantMenuItemComponent } from './components/restaurant-menu-item/restaurant-menu-item.component';
+import { MapMealTypePipe } from './pipes/map-meal-type.pipe';
 
 
 @NgModule({
@@ -47,6 +51,10 @@ import { RestaurantService } from './services/restaurant.service';
     ResetPasswordComponent,
     LoaderComponent,
     IsVegePipePipe,
+    MapMealTypePipe,
+    RestaurantComponent,
+    RestaurantMenuComponent,
+    RestaurantMenuItemComponent,
   ],
   imports: [
     BrowserModule,

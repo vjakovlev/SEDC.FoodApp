@@ -8,11 +8,14 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 })
 export class RestaurantsComponent implements OnInit {
 
-  restaurants
+  restaurants:any;
+  restaurantId:any;
 
   constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit(): void {
+   
+
     this.getAllRestaurants()
   }
 
@@ -20,7 +23,6 @@ export class RestaurantsComponent implements OnInit {
     this.restaurantService.getRestaurants().subscribe({
       next: res => {
         this.restaurants = res
-        console.log(res)
       }
     })
   }
