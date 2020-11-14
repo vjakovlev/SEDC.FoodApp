@@ -5803,19 +5803,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gordo\\.nuget\\packages\\": {}
+    "C:\\Users\\viceb\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj",
       "projectName": "SEDC.FoodApp.DataAccess",
-      "projectPath": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj",
-      "packagesPath": "C:\\Users\\gordo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\obj\\",
+      "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\SEDC.FoodApp.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\viceb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gordo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\viceb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5828,11 +5828,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj": {
-              "projectPath": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj"
+            "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj": {
+              "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.Auth.Models\\SEDC.FoodApp.Auth.Models.csproj"
             },
-            "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj": {
-              "projectPath": "C:\\Users\\gordo\\Desktop\\DevS\\SEDC projects\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj"
+            "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj": {
+              "projectPath": "C:\\Users\\viceb\\Desktop\\SEDC.FoodApp\\SEDC.FoodApp.Server\\SEDC.FoodApp.DomainModels\\SEDC.FoodApp.DomainModels.csproj"
             }
           }
         }
@@ -5880,7 +5880,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
