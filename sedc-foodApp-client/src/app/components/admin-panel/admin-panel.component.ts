@@ -104,13 +104,21 @@ export class AdminPanelComponent implements OnInit {
   openModal(template: TemplateRef<any>, restaurant?: any) {  
     this.modalRef = this.modalService.show(template);
 
+    //koga nemame restoran
     if(!restaurant) {
       this.requestForm.get("municipality").setValue(Municipality.karpos)
     }
 
+    //koga imame restoran
     if (!!restaurant) {
+
+      console.log(restaurant)
+
       this.isEditMode = true;
       const {id, menu, ...rest} = restaurant
+
+      console.log(rest)
+
       this.requestForm.setValue(rest)
       this.restaurantId = id;
     }

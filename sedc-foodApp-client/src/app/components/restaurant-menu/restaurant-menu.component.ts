@@ -9,8 +9,10 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 })
 export class RestaurantMenuComponent implements OnInit {
 
-  restaurantId:any;
-  restaurantMenu: any;
+  restaurantId:any
+  restaurantMenu: any
+
+  restaurantMenyByMealType = new Array
 
   starters: any
   salads: any
