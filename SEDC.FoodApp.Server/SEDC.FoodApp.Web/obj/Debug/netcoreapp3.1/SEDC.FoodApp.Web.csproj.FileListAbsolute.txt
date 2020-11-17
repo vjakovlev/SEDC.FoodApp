@@ -123,7 +123,6 @@ C:\Users\gordo\Desktop\DevS\SEDC projects\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.
 C:\Users\gordo\Desktop\DevS\SEDC projects\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\obj\Debug\netcoreapp3.1\SEDC.FoodApp.Web.genruntimeconfig.cache
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Debug\netcoreapp3.1\SEDC.FoodApp.Web.StaticWebAssets.xml
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Debug\netcoreapp3.1\SEDC.FoodApp.Web.exe
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Debug\netcoreapp3.1\SEDC.FoodApp.Web.deps.json
@@ -208,3 +207,4 @@ C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\bin\Deb
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\obj\Debug\netcoreapp3.1\SEDC.FoodApp.Web.csproj.CoreCompileInputs.cache
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\obj\Debug\netcoreapp3.1\SEDC.FoodApp.Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\obj\Debug\netcoreapp3.1\SEDC.FoodApp.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\viceb\Desktop\SEDC.FoodApp\SEDC.FoodApp.Server\SEDC.FoodApp.Web\obj\Debug\netcoreapp3.1\scopedcss\bundle\SEDC.FoodApp.Web.styles.css

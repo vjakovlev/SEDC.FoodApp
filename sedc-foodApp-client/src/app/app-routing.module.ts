@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
+import { OrderComponent } from './component/order/order.component';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { HomeComponent } from './components/home/home.component';
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'user/change-password', component: ChangePasswordComponent },
   { path: 'user/forgot-password', component: ForgotPasswordComponent },
   { path: 'user/reset-password', component: ResetPasswordComponent },
-  { path: 'admin', component:AdminPanelComponent, canActivate:[AuthGuard],data :{permittedRoles:['ADMIN']} }
+  { path: 'admin', component:AdminPanelComponent, canActivate:[AuthGuard],data :{permittedRoles:['ADMIN']} },
+  { path: 'order', component:OrderComponent }
 ]
 
 @NgModule({

@@ -14,11 +14,11 @@ export class OrderServiceService {
 
 
 
-  updateOrder(id) : Observable<any> {
+  createOrder(request: any) : Observable<any> {
 
-    let url = `${this.serverURL}/api/Order/UpdateOrder/${id}`;
+    let url = `${this.serverURL}/api/Order/CreateOrder`;
 
-    return this.http.put(url, {});
+    return this.http.post(url, request);
 
   }
 

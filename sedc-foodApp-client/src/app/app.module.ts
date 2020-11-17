@@ -31,6 +31,8 @@ import { RestaurantComponent } from './components/restaurant/restaurant.componen
 import { RestaurantMenuComponent } from './components/restaurant-menu/restaurant-menu.component';
 import { RestaurantMenuItemComponent } from './components/restaurant-menu-item/restaurant-menu-item.component';
 import { MapMealTypePipe } from './pipes/map-meal-type.pipe';
+import { OrderComponent } from './component/order/order.component';
+import { OrderServiceService } from './services/order-service.service';
 
 
 @NgModule({
@@ -55,6 +57,7 @@ import { MapMealTypePipe } from './pipes/map-meal-type.pipe';
     RestaurantComponent,
     RestaurantMenuComponent,
     RestaurantMenuItemComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +72,7 @@ import { MapMealTypePipe } from './pipes/map-meal-type.pipe';
     ConfigService,
     RestaurantService,
     UserService,
+    OrderServiceService,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,

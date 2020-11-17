@@ -24,6 +24,9 @@ namespace SEDC.FoodApp.Services.Helpers
             services.AddScoped<IRestaurantRepository, RestaurantRepository>(provider =>
                     new RestaurantRepository(mongoConnectionString, mongoDatabase));
 
+            services.AddScoped<IOrderRepository, OrderRepository>(provider =>
+                    new OrderRepository(mongoConnectionString, mongoDatabase));
+
             // register npg sql db context
             services.AddDbContext<FoodAppUserDbContext>(options =>
             {

@@ -16,9 +16,4 @@ export class RestaurantMenuItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  updateOrder(id) {
-    this.orderService.updateOrder(id).subscribe(res => console.log(res))
-
-  }
-
 }
