@@ -44,6 +44,13 @@ export class AuthService {
     }
   }
 
+  getUserId() {
+    if(this.isLoggedIn) {
+      var payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
+      return payLoad.UserId;
+    }
+  }
+
   logout() {
     this.isLoggedIn.next(false);
     this.isAdmin.next(false);

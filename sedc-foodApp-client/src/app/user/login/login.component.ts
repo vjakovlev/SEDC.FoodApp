@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
+import { OrderServiceService } from 'src/app/services/order-service.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private userService: UserService,
               private router: Router,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private orderService: OrderServiceService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem("token") != null) {
@@ -49,6 +51,8 @@ export class LoginComponent implements OnInit {
         this.isLoading = false
       },
       complete: () => {
+        this.createEmptyOrder();
+
         this.isLoading = false
         this.router.navigateByUrl("/home");
       }
@@ -56,6 +60,15 @@ export class LoginComponent implements OnInit {
 
   }
 
+  createEmptyOrder() {
+    let userId = this.authService.getUserId()
+    let request = {
+      UserId: userId
+    }
+    this.orderService.createOrder(request).subscribe({
+      error: err => console.warn(err.error)
+    })
+  }
 
 
 }

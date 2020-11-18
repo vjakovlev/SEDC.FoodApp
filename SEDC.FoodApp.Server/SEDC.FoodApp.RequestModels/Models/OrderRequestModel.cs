@@ -7,6 +7,7 @@ namespace SEDC.FoodApp.RequestModels.Models
 {
     public class OrderRequestModel
     {
-        public List<MenuItem> MenuItems { get; set; }
+        public string UserId { get; set; }
+        public MenuItem MenuItem { get; set; }
     }
 }

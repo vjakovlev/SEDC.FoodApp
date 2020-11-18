@@ -12,14 +12,18 @@ export class OrderServiceService {
 
   constructor(private http: HttpClient) { }
 
-
-
   createOrder(request: any) : Observable<any> {
-
     let url = `${this.serverURL}/api/Order/CreateOrder`;
-
     return this.http.post(url, request);
-
   }
 
+  updateOrder(request: any) : Observable<any> {
+    let url = `${this.serverURL}/api/Order/UpdateOrder`;
+    return this.http.post(url, request);
+  }
+
+  getUserOrder(userId: string) {
+    let url = `${this.serverURL}/api/Order/GetOrder?UserId=${userId}`;
+    return this.http.get(url);
+  }
 }

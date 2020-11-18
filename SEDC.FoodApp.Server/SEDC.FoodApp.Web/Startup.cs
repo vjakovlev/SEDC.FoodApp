@@ -49,6 +49,7 @@ namespace SEDC.FoodApp.Web
 
             //Register Services
             services.AddTransient<IRestorantService, RestorantService>();
+            services.AddTransient<IOrderService, OrderService>();
 
             //Dipendency Injection Module
             DIRepositoryModule.RegisterRepositories(services, mongoCs, mongoDatabase, npgSqlCs);

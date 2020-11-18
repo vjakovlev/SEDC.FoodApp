@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SEDC.FoodApp.Auth.Models;
 using SEDC.FoodApp.RequestModels.Models;
+using SEDC.FoodApp.Services.Services.Interfaces;
 
 namespace SEDC.FoodApp.Web.Controllers
 {
@@ -16,22 +17,43 @@ namespace SEDC.FoodApp.Web.Controllers
     {
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
+        private IOrderService _orderService;
 
         public OrderController(UserManager<ApplicationUser> userManager,
-                               SignInManager<ApplicationUser> signInManager)
+                               SignInManager<ApplicationUser> signInManager,
+                               IOrderService orderService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _orderService = orderService;
         }
 
 
         [HttpPost("CreateOrder")]
         public async Task<IActionResult> CreateOrder([FromBody] OrderRequestModel requestModel) 
         {
-            //var user = await _userManager.GetUserAsync();
-            var user = await _signInManager.UserManager.FindByIdAsync("");
+            var order = await _orderService.GetOrderByUserId(requestModel.UserId);
+
+            if (order == null) 
+            {
+                await _orderService.CreateNewOrder(requestModel);
+            }
 
             return Ok();
+        }
+
+        [HttpPost("UpdateOrder")]
+        public async Task<IActionResult> UpdateOrder([FromBody] OrderRequestModel requestModel) 
+        {
+            await _orderService.UpdateOrder(requestModel);
+            return Ok();
+        }
+
+        [HttpGet("GetOrder")]
+        public async Task<IActionResult> GetOrder([FromQuery] string UserId) 
+        {
+            var order = await _orderService.GetOrderByUserId(UserId);
+            return Ok(order);
         }
 
 
